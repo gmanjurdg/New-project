@@ -19,6 +19,7 @@ class ProductProvider extends Component {
     componentDidMount(){
         this.setProducts();
     }
+    
     setProducts =() =>{
         let tempProducts = [];
         storeProducts.forEach(item =>{
@@ -52,9 +53,9 @@ addToCart = id =>{
     product.total = price;
     this.setState(()=>{
      return {product: tempProducts, cart: [...this.state.cart.product]};  
- },
- () =>{
-     this.addTotals();   
+ },() =>{
+     this.addTotals(id);   
+     
  }
  );
 };
@@ -105,7 +106,8 @@ render() {
                 openModal:this.openModal,
                 closeModal:this.closeModal,
                 removeItem:this.removeItem,
-                clearCart:this.clearCart
+                clearCart:this.clearCart,
+                
             }}>
                 {this.props.children}
                </ProductContext.Provider>

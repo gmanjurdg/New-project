@@ -7,6 +7,7 @@ import Cart from './Components/Cart';
 import Navbar from './Components/Navbar';
 import { Switch, Route } from "react-router-dom";
 import Default from './Components/Default';
+import RecipeCard from './Components/RecipeCard'
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/" component={ProductList} />
             <Route path="/details" component={Details} />
             <Route path="/cart" component={Cart} />
+            <Route path="/RecipeCard" component={RecipeCard} />
             <Route component={Default} />
           </Switch>
       </React.Fragment>

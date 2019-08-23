@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+
 import { Link } from 'react-router-dom';
 import { ProductConsumer } from '../Context2';
 import PropTypes from 'prop-types';
-import { storeProducts } from '../Data';
-
 
 
 export default class Product extends Component {
@@ -16,17 +14,17 @@ export default class Product extends Component {
     componentDidMount() {
         this.storeProducts = this.state.data;
         this.storeProducts.title = this.state.img
-        console.log(storeProducts)
+        
     }
     render() {
         const { id, title, img, price, inCart } = this.props.Product;
         return (
             <div>
-                <ProductWraper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
+                <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
                     <div className="card">
                         <ProductConsumer>
                             {value => (
-                                <div className="col-9 mx-auto col-md-6 col-lg-3 my-3" onClick={() => value.handleDetail(id)}
+                                <div className="img-container p-5" onClick={() => value.handleDetail(id)}
                                 >
                                     <Link to="/details">
                                         <img src={img} alt="product" className="card-img-top" />
@@ -58,7 +56,7 @@ export default class Product extends Component {
                             </h5>
                         </div>
                     </div>
-                </ProductWraper>
+                </div>
             </div>
         );
     }
@@ -72,6 +70,3 @@ Product.propTypes = {
         inCart: PropTypes.bool
     }).isRequired
 };
-const ProductWraper = styled.div`
-`
-;
